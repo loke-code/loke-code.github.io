@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bonheur+Royale:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  --brand: #868afc;
+  --bg: #f6f8fb;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: #1f242d;
+}
+
+.home{
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    padding: 60px 9% 0;
+    color: #ffffff;
+}
+
+
+.hi {
+  display: inline-block;
+  transform-origin: 50% 80%;
+  animation: wave 1.5s ease-in-out infinite;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-right: -10px;
+}
+
+/* Gentler Wave Animation */
+@keyframes wave {
+  0%, 100% { 
+    transform: rotate(-30deg) rotate(0deg); 
+  }
+  50% { 
+    transform: rotate(-30deg) rotate(10deg); 
+  }
+}
+.home-info h1{
+    font-size: 45px;
+}
+
+.home-info h1 .lokesh{
+    color: #868afc;
+    font-weight: 700;
+    font-size: 60px;
+    animation: shadow 2s infinite alternate;
+}
+
+@keyframes shadow {
+  from {
+    text-shadow: 0 0 1px #686dfb, 0 0 2px #686dfb, 0 0 4px #686dfb;
+  }
+  to {
+    text-shadow: 0 0 2px #686dfb, 0 0 4px #686dfb, 0 0 8px #686dfb;
+  }
+}
+
+.home-info h2{
+    font-size: 30px;
+    margin-top: -10px;
+}
+
+.home-info p{
+    font-size: 16px;
+    margin: 10px 0 25px;
+}
+
+.home-info .btn-sci{
+    display: flex;
+    align-items: center;
+}
+
+.btn{
+    display: inline-block;
+    background: #868afc;
+    padding: 10px 30px;
+    border: 2px solid #868afc;
+    border-radius: 40px;
+    box-shadow: 0 0 10px #686dfb;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1f242d;
+    transition: .5s;
+}
+
+.btn:hover{
+    background: transparent;
+    color: #686dfb;
+    box-shadow: none;
+}
+
+.home-info .btn-sci .sci{
+    margin-left: 20px;
+}
+
+.home-info .btn-sci .sci a{
+    display: inline-flex;
+    padding: 8px;
+    font-size: 30px;
+    color: #686dfb;
+    transition: 0.5s;
+}
+
+.home-info .btn-sci .sci a:hover{
+    color: #fff;
+}
+
+.home-photo {
+    animation: shadow 3s infinite;
+}
+
+.home-photo img {
+  width: 400px;            
+  height: auto;
+  border-radius: 10px;         
+  object-fit: cover;         
+  animation: bright 3s infinite alternate;
+}
+
+@keyframes bright {
+  from {
+    box-shadow: 
+      0 0 6px 1px #686dfb;
+  }
+  to {
+    box-shadow: 
+      0 0 12px 2px #686dfb;
+  }
+}

@@ -1,0 +1,167 @@
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+:root {
+  --background:#1f242d;
+  --foreground:#fff;
+  --primary:#868afc;
+  --secondary:#686dfb;
+  --muted:#fff;
+  --card-bg:#212C36;
+  --border:#3a3f47;
+  --shadow:#686dfb;
+  --navbar-height: 80px;
+}
+body {
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  background-color:var(--background);
+  color:var(--foreground);
+  line-height:1.6;
+  min-height:100vh;
+  padding-top: var(--navbar-height);
+  scroll-behavior: smooth; 
+  overflow-x: hidden;
+
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contact-section {
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: 5rem; 
+    gap: 15px;
+}
+.contact-container .card{
+    display: flex;
+    align-items: center;
+    width: 400px;
+    background-color:var(--card-bg);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:5px 20px;
+    box-shadow:0 4px 6px rgba(0,0,0,0.1);
+}
+.contact-container .card:hover{
+    box-shadow:0 10px 30px -10px rgba(104,109,251,0.2);
+}
+
+.contact-container .card .copy-btn{
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.contact-container .copy-btn.copied {
+    color: #4BB543; 
+}
+
+.contact-container .card-icon {
+    font-size: 30px;
+    color: var(--secondary);
+    text-decoration: none; /* remove underline */
+    display: flex;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.contact-container .card-icon:hover{
+    color: #fff;
+}
+
+.sci {
+    display: flex;
+    justify-content: flex-end;   /* align to right, same as cards */
+    gap: 30px;                   /* space between icons */
+    margin-right: 10rem;          /* align with cards */
+    margin-top: 10px;
+}
+
+.sci a {
+    display: flex;
+    color: var(--secondary);
+    font-size: 40px;
+    transition: color 0.3s ease;
+    text-decoration: none;
+    align-items: center;
+}
+
+.sci a:hover {
+    color: #fff;
+}
+
+
+.contact-section {
+  display: flex;
+  align-items: flex-start; /* Align top */
+  justify-content: center;
+  gap: 300px; /* space between photo & cards */
+}
+
+.profile-photo {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-photo img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: relative;
+  z-index: 2;
+}
+
+.equalizer {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 300px; 
+  height: 300px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.equalizer span {
+  position: absolute;
+  width: 3px;
+  height: 10px;
+  background: #686dfb;
+  border-radius: 2px;
+  top: 50%;
+  left: 50%;
+  transform-origin: center -150px; 
+  animation: beat 1s infinite ease-in-out;
+  opacity: 0.3;
+}
+
+
+@keyframes beat {
+  0% { height: 10px; opacity: 0.1; }
+  100% { height: 15px; opacity: 0.3; }
+  50%  { height: 30px; opacity: 0.5; }
+}
+

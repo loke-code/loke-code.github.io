@@ -1,0 +1,320 @@
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+:root {
+  --background:#1f242d;
+  --foreground:#fff;
+  --primary:#868afc;
+  --secondary:#686dfb;
+  --muted:#fff;
+  --card-bg:#212C36;
+  --border:#3a3f47;
+  --shadow:#686dfb;
+  --navbar-height: 80px;
+}
+body {
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  background-color:var(--background);
+  color:var(--foreground);
+  line-height:1.6;
+  min-height:100vh;
+  padding-top: var(--navbar-height);
+  scroll-behavior: smooth; 
+}
+.container {
+  max-width:1200px;
+  margin:-30px auto;
+  padding:3rem 1rem;
+  transition: padding 0.3s ease;
+}
+.header {
+  text-align:center;
+  margin-bottom:4rem;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.header h1 {
+  font-size:3.5rem;
+  font-weight:700;
+  margin-bottom:1rem;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.header h3 {
+  font-size:2.5rem;
+  font-weight:700;
+  margin-bottom:1.5rem;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.header p {
+  font-size:1.25rem;
+  color:var(--muted);
+
+  margin:0 auto;
+}
+.experience-tree {
+  position:relative;
+}
+.tree-trunk {
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  width:2px;
+  height:100%;
+  background:linear-gradient(180deg,var(--primary) 0%,transparent 100%);
+  opacity:0.3;
+}
+.experience-branch {
+  position:relative;
+  margin:3rem 0;
+  opacity:0;
+  animation:fadeInUp 0.8s ease-out forwards;
+}
+.experience-branch:nth-child(even) {
+  animation-delay:0.2s;
+}
+.experience-branch:nth-child(odd) {
+  animation-delay:0.1s;
+}
+.tree-node {
+  position:absolute;
+  left:50%;
+  top:-8px;
+  transform:translateX(-50%);
+  width:16px;
+  height:16px;
+  background-color:var(--primary);
+  border-radius:50%;
+  z-index:10;
+  box-shadow:0 0 20px rgba(134,138,252,0.6);
+  transition:opacity 0.5s ease,transform 0.5s ease;
+}
+.experience-branch:has(.experience-card:hover) .tree-node {
+  opacity:0;
+  transform:translateX(-50%) translateY(-12px);
+}
+.experience-card {
+  background:linear-gradient(145deg,var(--card-bg),#2a2f38);
+  border-top:2px solid 686dfb;
+  border-radius:0 0 16px 16px;
+  padding:2rem;
+  margin:0 2rem;
+  position:relative;
+  box-shadow:0 10px 30px -10px rgba(104,109,251,0.2);
+  transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+.experience-card::before {
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:3px;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  border-radius:16px 16px 0 0;
+  pointer-events:none;
+}
+.experience-card:hover {
+  transform:translateY(-8px);
+  box-shadow:0 20px 40px -10px rgba(104,109,251,0.4);
+}
+.experience-content {
+  display:flex;
+  align-items:flex-start;
+  gap:2rem;
+}
+.company-logo {
+  width:80px;
+  height:80px;
+  background:var(--card-bg);
+  border:2px solid var(--primary);
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:2rem;
+  font-weight:bold;
+  color:var(--primary);
+  flex-shrink:0;
+  box-shadow:0 0 20px rgba(134,138,252,0.3);
+  transition:all 0.3s ease;
+  padding:0;
+  overflow:hidden;
+}
+.company-logo img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:10px;
+}
+.company-logo:hover {
+  transform:scale(1.05);
+  box-shadow:0 0 30px rgba(134,138,252,0.5);
+}
+.experience-details {
+  flex:1;
+}
+.company-header {
+  margin-bottom:1.5rem;
+}
+.company-name {
+  font-size:1.75rem;
+  font-weight:700;
+  color:var(--foreground);
+}
+.job-title {
+  margin-top: -5px;
+  font-size:1.25rem;
+  color:var(--primary);
+  font-weight:600;
+}
+.duration {
+  font-size:0.95rem;
+  color:var(--muted);
+  font-weight:500;
+}
+.achievements {
+  margin-top: -20px;
+  list-style:none;
+}
+.achievements li {
+  position:relative;
+  padding-left:1rem;
+  margin-bottom:5px;
+  color:var(--muted);
+  line-height:1.6;
+  color:#fff;
+}
+.achievements li::before {
+  content:'•';
+  position:relative;
+  margin-right:10px;
+  left:0;
+  color:#868afc;
+  font-weight:bold;
+  font-size:1.2rem;
+}
+/* Alternating tilt layout for larger screens */
+@media (min-width:768px) {
+  .experience-branch:nth-child(even) .experience-card {
+  margin-left:2rem;
+  margin-right:6rem;
+}
+.experience-branch:nth-child(odd) .experience-card {
+  margin-left:6rem;
+  margin-right:2rem;
+}
+}
+
+.footer {
+    text-align: center;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 1px;
+    background: var(--border);
+}
+.footer p {
+  color:var(--muted);
+  font-size:1.1rem;
+  padding-bottom: 30px;
+}
+
+.coursework {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  list-style: none;
+}
+
+.coursework li::before {
+  content:'•';
+  position:relative;
+  margin-right:10px;
+  left:0;
+  color:#868afc;
+  font-weight:bold;
+  font-size:1.2rem;
+}
+
+.intro{
+  margin-top: -30px;
+  margin-left: 50%;
+  text-align: center;
+  font-size: 16px;
+}
+
+.track{
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: -15px;
+  opacity: 0.7;
+}
+
+.certificates {
+    align-items: center;
+    text-align: center;
+}
+
+.certificates a .company-logo {
+  height: 200px;
+  width: 200px;
+  display: inline-block;
+  margin: 0 30px;
+}
+
+@keyframes fadeInUp {
+  from {
+  opacity:0;
+  transform:translateY(30px);
+}
+to {
+  opacity:1;
+  transform:translateY(0);
+}
+}
+@media (max-width:767px) {
+body {
+    padding-top: 70px;
+}
+.header h1 {
+  font-size:2.5rem;
+}
+.experience-card {
+  margin:0 1rem;
+}
+.experience-content {
+  flex-direction:column;
+  text-align:center;
+}
+.company-logo {
+  align-self:center;
+}
+}
+
