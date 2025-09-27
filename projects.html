@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lokesh</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css", rel="stylesheet">
+  <link rel="stylesheet" href="src/expstyle.css" />
+  <link rel="stylesheet" href="src/components.css" />
+  <link rel="stylesheet" href="src/projects.css" />
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css", rel="stylesheet">
+  <!-- Webpage Icon -->
+  <link rel="icon" href="src/web-icon-color.svg" type="image/svg+xml">
+
+  <!-- BotFramework Web Chat -->
+  <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
+  <script src="src/config.js"></script>
+  
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo-group">
+      <div class="logo-animation">
+      <span></span><span></span><span></span><span></span>
+    </div>
+    <a href="index.html" class="logo">okesh</a>
+  </div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li class="active"><a href="#">Projects</a></li>
+      <li><a href="contact.html">Contact me</a></li>
+    </ul>
+  </nav>
+
+
+    <div class="container">
+      <header class="header">
+            <h1>Projects</h1>
+            <p>The best way to learn it is to actually do it. 🚀</p>
+        </header>
+                <div class="project-card">
+                    <div class="experience-content">
+                        <div id="chat-logo" aria-label="Open chat" role="button">
+                          <img src="src/azure-bot.jpg" class="project-logo" alt="Azure logo">
+                        </div>
+                        <div class="experienc e-details">
+                            <div class="company-header">
+                                <h3 class="company-name">Azure Personal QA Chatbot</h3>
+                            </div>
+                            <p class="tech-stack">Microsoft Azure | JavaScript | HTML | CSS</p>
+                            <ul class="achievements">
+                                <li>Designed and deployed a chatbot architecture using Azure Bot Service with Azure Language Service and Azure Cognitive Search Index for knowledge retrieval, from custom knowledge base for personalized Q&A & contextual conversations, with integrated monitoring for performance analytics.</li>
+                                <li>Integrated the bot into a web application via Direct Line WebChat channel and JavaScript SDK, enabling real-time conversational AI along with Google Analytics for tracking site visits.</li>
+                            </ul>
+                        </div>
+                    </div>
+            </div>
+
+               <div class="project-card">
+                    <div class="experience-content">
+                        <a href="https://github.com/loke-code/RL-gallery/tree/main/Doom_Simulation" target="_blank" rel="noopener noreferrer">
+                          <img src="src/replay-gif.gif" class="project-logo" alt="RL gif">
+                        </a>
+                        <div class="experience-details">
+                            <div class="company-header">
+                                <h3 class="company-name">VizDoom Agent with Reinforcement Learning</h3>
+                            </div>
+                            <p class="tech-stack">Python | Pytorch | Numpy | Sample Factory</p>
+                            <ul class="achievements">
+                                <li>Implemented Asynchronous Proximal Policy Optimization (APPO) using Sample Factory for GPU-accelerated training on parallel simulations in Doom, a 3D RGB environment and sparse rewards.</li>
+                                <li>Scenario: Health Gathering Supreme; agent must navigate the map and collect health packs while constantly taking acid damage that depletes its health. 100+ model downloads on Hugging Face.</li>
+                            </ul>
+                        </div>
+                    </div>
+            </div>        
+            </div>
+    </div>
+    
+    <header class="header">
+    <h3>Publications</h3>
+    </header>
+    <div class="publication">
+    <a href="https://ieeexplore.ieee.org/document/10094470" target="_blank" rel="noopener noreferrer">
+      <img src="src/IEEE.jpg" class="company-logo" alt="IEEE">
+    </a>
+    <p>
+      <em>2022 International Conference on Futuristic Technologies</em><br>
+    Quantifying Relative Turbidity Levels using Image Processing Techniques.
+    </p>
+    </div>
+        
+  <!-- Toggle Button -->
+  <div id="chat-button" aria-label="Open chat" role="button">
+    <span class="text">Talk to my bot</span>
+    <span><i class="bi bi-chat-fill"></i></span>
+  </div>
+
+  <!-- Popup -->
+  <section id="chat-popup" aria-label="Chat window" aria-hidden="true">
+    <header id="chat-header">
+      Chat with my QA bot
+      <button id="close-btn" aria-label="Close chat">×</button>
+    </header>
+    <div id="webchat-container">
+      <div id="webchat" role="main"></div>
+    </div>
+  </section>
+
+  <script>
+    const cfg = typeof getConfig === 'function' ? getConfig() : {};
+    const chatInstance = cfg.Instance;
+    const directLine = window.WebChat.createDirectLine({ secret: chatInstance });
+
+    // Style options (avatars, bubbles, etc.)
+    const styleOptions = {
+      primaryFont: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+      backgroundColor: "rgba(33, 44, 54, 1)",
+      sendBoxBackground: '#212C36', 
+      sendBoxTextColor: '#fff',
+      bubbleBackground: '#868afc',
+      bubbleFromUserBackground: '#DCF8C6',
+      bubbleFromUserBorderRadius: '10px',
+      bubbleBorderRadius: '10px',
+      botAvatarImage: 'src/boticon.jpg',
+      botAvatarInitials: '',
+      userAvatarImage: 'https://cdn-icons-png.flaticon.com/512/847/847969.png',
+      userAvatarBackgroundColor: '#fff',
+      userAvatarInitials: '',
+      sendBoxButtonColor: '#868afc',
+      sendBoxButtonColorOnHover: '#4e46e5',     
+      hideUploadButton: true
+    };
+
+    window.WebChat.renderWebChat(
+      {
+        directLine,
+        userID: 'user_' + Math.random().toString(36).slice(2, 11),
+        username: 'You',
+        locale: 'en-US',
+        styleOptions
+      },
+      document.getElementById('webchat')
+    );
+
+    const chatButton = document.getElementById('chat-button');
+    const chatPopup  = document.getElementById('chat-popup');
+    const closeBtn   = document.getElementById('close-btn');
+
+    function openChat() {
+      chatPopup.classList.add('open');
+      chatPopup.setAttribute('aria-hidden', 'false');
+
+      setTimeout(() => window.dispatchEvent(new Event('resize')), 0);
+      setTimeout(() => window.dispatchEvent(new Event('resize')), 150);
+
+      setTimeout(() => {
+        const input = document.querySelector('#webchat input[type="text"], #webchat textarea');
+        if (input) input.focus();
+      }, 200);
+    }
+    document.getElementById('chat-logo').addEventListener('click', openChat);
+
+
+    function closeChat() {
+      chatPopup.classList.remove('open');
+      chatPopup.setAttribute('aria-hidden', 'true');
+    }
+
+    chatButton.addEventListener('click', openChat);
+    closeBtn.addEventListener('click', closeChat);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeChat();
+    });
+  </script>
+
+        <footer class="footer">
+            <p>Learning never exhausts the mind. ✨</p>
+        </footer>
+    
+</body>
+</html>

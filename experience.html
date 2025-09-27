@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lokesh</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css", rel="stylesheet">
+  <link rel="stylesheet" href="src/expstyle.css" />
+  <link rel="stylesheet" href="src/components.css" />
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css", rel="stylesheet">
+  <!-- Webpage Icon -->
+  <link rel="icon" href="src/web-icon-color.svg" type="image/svg+xml">
+
+  <!-- BotFramework Web Chat -->
+  <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
+  <script src="src/config.js"></script>
+  
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo-group">
+      <div class="logo-animation">
+      <span></span><span></span><span></span><span></span>
+    </div>
+    <a href="index.html" class="logo">okesh</a>
+  </div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li class="active"><a href="#">Experience</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact me</a></li>
+    </ul>
+  </nav>
+
+    <div class="container">
+        <header class="header">
+            <h1>Professional Experience</h1>
+            <p>Building solutions, Solving problems, Creating impact, Growing always. 📈</p>
+        </header>
+
+        <div class="experience-tree">
+            <div class="tree-trunk"></div>
+            
+            <div class="experience-branch">
+                
+                <div class="experience-card">
+                    <div class="experience-content">
+                        <a href="https://www.linkedin.com/company/genpact/" target="_blank" rel="noopener noreferrer">
+                          <img src="src/genpact_logo.jpeg" class="company-logo" alt="Genpact Logo">
+                        </a>
+                        <div class="experience-details">
+                            <div class="company-header">
+                                <h3 class="company-name">Genpact</h3>
+                                <h4 class="job-title">Lead Data scientist</h4>
+                                <p class="duration">Mar, 2023 - Sept, 2025</p>
+                            </div>
+                            <ul class="achievements">
+                                <li>Deployed Azure Data Factory pipelines to automate cleaning, and transformation of market spend data from web sources like Google, Facebook Ads and data warehouse tables, saving 16 analyst hours weekly.</li>
+                                <li>Built a knowledge base on Azure using text-embedding-ada-002 for vector indexing and a Retrieval-Augmented Generation search pipeline, enabling retrieval of internal documentation. Integrated chatbot using Azure Bot Framework WebChat channel, handling 1,200+ prompts over 5 months.</li>
+                                <li>Optimized marketing team’s SQL queries, reducing runtime by 60% by eliminating redundant subqueries/table scans. Deployed Redshift stored procedure to perform ETL to S3 table for direct querying.</li>
+                                <li>Developed Power BI dashboards with complex DAX & data modeling, serving 30+ daily users.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-branch">
+                <div class="tree-node"></div>
+                <div class="experience-card">
+                    <div class="experience-content">
+                      <a href="https://www.linkedin.com/company/moes-niot/" target="_blank" rel="noopener noreferrer">
+                        <img src="src/niot-logo.jpeg" class="company-logo" alt="NIOT Logo"></img>
+                      </a>
+                        <div class="experience-details">
+                            <div class="company-header">
+                                <h3 class="company-name">National Institute of Ocean Technology</h3>
+                                <h4 class="job-title">Computer Vision Intern</h4>
+                                <p class="duration">Aug, 2022 - Oct, 2022</p>
+                            </div>
+                            <ul class="achievements">
+                                <li>Developed an underwater image enhancement pipeline featuring CLAHE, thresholding & color balancing for low-light and turbid environments. Optimized for edge devices and real-time applications.</li>
+                                <li>Estimated relative turbidity by correlating original and enhanced images with a feature mask for ROI, validated against turbidity and lux meters at Deep Sea Technologies Underwater Laboratory, ROSUB wing.</li>
+                                <li>Deployed custom NIOT GUI to present estimated turbidity and relay live enhanced feeds/static images.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+  <!-- Toggle Button -->
+  <div id="chat-button" aria-label="Open chat" role="button">
+    <span class="text">Talk to my bot</span>
+    <span><i class="bi bi-chat-fill"></i></span>
+  </div>
+
+  <!-- Popup -->
+  <section id="chat-popup" aria-label="Chat window" aria-hidden="true">
+    <header id="chat-header">
+      Chat with my QA bot
+      <button id="close-btn" aria-label="Close chat">×</button>
+    </header>
+    <div id="webchat-container">
+      <div id="webchat" role="main"></div>
+    </div>
+  </section>
+
+  <script>
+    const cfg = typeof getConfig === 'function' ? getConfig() : {};
+    const chatInstance = cfg.Instance;
+    const directLine = window.WebChat.createDirectLine({ secret: chatInstance });
+
+    // Style options (avatars, bubbles, etc.)
+    const styleOptions = {
+      primaryFont: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+      backgroundColor: "rgba(33, 44, 54, 1)",
+      sendBoxBackground: '#212C36', 
+      sendBoxTextColor: '#fff',
+      bubbleBackground: '#868afc',
+      bubbleFromUserBackground: '#DCF8C6',
+      bubbleFromUserBorderRadius: '10px',
+      bubbleBorderRadius: '10px',
+      botAvatarImage: 'src/boticon.jpg',
+      botAvatarInitials: '',
+      userAvatarImage: 'https://cdn-icons-png.flaticon.com/512/847/847969.png',
+      userAvatarBackgroundColor: '#fff',
+      userAvatarInitials: '',
+      sendBoxButtonColor: '#868afc',
+      sendBoxButtonColorOnHover: '#4e46e5',     
+      hideUploadButton: true
+    };
+
+    window.WebChat.renderWebChat(
+      {
+        directLine,
+        userID: 'user_' + Math.random().toString(36).slice(2, 11),
+        username: 'You',
+        locale: 'en-US',
+        styleOptions
+      },
+      document.getElementById('webchat')
+    );
+
+    const chatButton = document.getElementById('chat-button');
+    const chatPopup  = document.getElementById('chat-popup');
+    const closeBtn   = document.getElementById('close-btn');
+
+    function openChat() {
+      chatPopup.classList.add('open');
+      chatPopup.setAttribute('aria-hidden', 'false');
+
+      setTimeout(() => window.dispatchEvent(new Event('resize')), 0);
+      setTimeout(() => window.dispatchEvent(new Event('resize')), 150);
+
+      setTimeout(() => {
+        const input = document.querySelector('#webchat input[type="text"], #webchat textarea');
+        if (input) input.focus();
+      }, 200);
+    }
+
+    function closeChat() {
+      chatPopup.classList.remove('open');
+      chatPopup.setAttribute('aria-hidden', 'true');
+    }
+
+    chatButton.addEventListener('click', openChat);
+    closeBtn.addEventListener('click', closeChat);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeChat();
+    });
+  </script>
+
+        <footer class="footer">
+            <p>Ready to create the next chapter together? 😊</p>
+        </footer>
+    
+</body>
+</html>
